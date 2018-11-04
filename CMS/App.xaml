@@ -5,7 +5,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ControlTemplate TargetType="Button" x:Key="AwaitableButton" >
+        <ControlTemplate TargetType="Button" x:Key="OldAwaitableButton" >
             <Border Name="RootElement">
 
                 <!--Create the SolidColorBrush for the Background 
@@ -29,18 +29,21 @@
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-
-                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    <Button>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Margin="4,5,4,4" 
                                       Grid.Column="1" />
-                    <fa:ImageAwesome Icon="Refresh" 
+                            <fa:ImageAwesome Icon="Refresh" 
                                      Spin="True" 
                                      Height="10" 
                                      Width="10" 
                                      Grid.Column="2" 
                                      Margin="0" 
-                                     Visibility="{Binding Path=LoaderVisible}"/>
+                                     Visibility="{Binding Path=Busy}"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
 
             </Border>
