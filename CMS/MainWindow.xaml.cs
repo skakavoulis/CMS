@@ -12,5 +12,10 @@ namespace CMS
             InitializeComponent();
         }
 
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            var viewModel = DataContext as MainWindowViewModel;
+            viewModel.LoadAuthToken();
+        }
     }
 }

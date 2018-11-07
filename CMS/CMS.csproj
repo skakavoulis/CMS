@@ -72,6 +72,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Interfaces\ILoginService.cs" />
+    <Compile Include="LoginServices\UsernamePasswordLogin.cs" />
     <Compile Include="Login\CancelCommand.cs" />
     <Compile Include="Login\LoginCommand.cs" />
     <Compile Include="Login\LoginView.xaml.cs">
@@ -84,6 +86,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

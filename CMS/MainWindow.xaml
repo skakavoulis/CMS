@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:CMS"
         xmlns:login="clr-namespace:CMS.Login"
         mc:Ignorable="d"
-        Title="Login" Height="210" Width="420" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow">
-    <login:LoginView></login:LoginView>
+        Title="Card Management System" Height="640" Width="820" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow"
+        Loaded="MainWindow_OnLoaded">
+    <Window.DataContext>
+        <local:MainWindowViewModel></local:MainWindowViewModel>
+    </Window.DataContext>
+    <Grid Width="860" Height="640">
+
+
+    </Grid>
 </Window>

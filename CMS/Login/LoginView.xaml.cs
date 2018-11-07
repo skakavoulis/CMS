@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,7 +10,7 @@ namespace CMS.Login
     /// <summary>
     /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class LoginView : Window
     {
         public LoginView()
         {
@@ -19,6 +20,11 @@ namespace CMS.Login
         private void PasswordBox_OnLostFocus(object sender, RoutedEventArgs e)
         {
             (DataContext as LoginViewModel).Password = (sender as PasswordBox).SecurePassword.ToString();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 
