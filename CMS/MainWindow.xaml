@@ -4,14 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CMS"
+        xmlns:main="clr-namespace:CMS.Main"
         mc:Ignorable="d"
-        Title="Card Management System" Height="640" Width="820" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow"
+        Title="Card Management System"
+        Height="640"
+        Width="820"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ThreeDBorderWindow"
         Loaded="MainWindow_OnLoaded">
+
     <Window.DataContext>
         <local:MainWindowViewModel></local:MainWindowViewModel>
     </Window.DataContext>
-    <Grid Width="860" Height="640">
 
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type main:MainViewModel}">
+            <main:MainView />
+        </DataTemplate>
+    </Window.Resources>
 
-    </Grid>
+    <ContentControl Content="{Binding Path=ActiveView}"></ContentControl>
 </Window>

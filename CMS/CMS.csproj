@@ -115,6 +115,10 @@
       <Project>{c88ec1e7-e7ad-4c01-bd9e-6c93ae7e8d5b}</Project>
       <Name>CMS.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CMS.Tools\CMS.Tools.csproj">
+      <Project>{7bd534cf-4f4e-46b3-b97d-d45e2d7e327a}</Project>
+      <Name>CMS.Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
