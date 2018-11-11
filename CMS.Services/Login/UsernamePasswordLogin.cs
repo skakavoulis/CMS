@@ -1,6 +1,6 @@
-﻿using CMS.Login;
-using CMS.Services.Interfaces;
+﻿using CMS.Services.Interfaces;
 using System.Threading.Tasks;
+using CMS.Login;
 
 namespace CMS.Services.Login
 {

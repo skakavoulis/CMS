@@ -84,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CMS.Login\CMS.Login.csproj">
-      <Project>{26f4f6d4-3264-4286-9972-619b4d691266}</Project>
+      <Project>{c12268cf-1057-4469-97e7-c334950c1ca2}</Project>
       <Name>CMS.Login</Name>
     </ProjectReference>
     <ProjectReference Include="..\CMS.Repositories\CMS.Repositories.csproj">

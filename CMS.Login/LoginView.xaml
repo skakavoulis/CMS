@@ -1,20 +1,23 @@
-﻿<Window x:Class="CMS.Login.LoginViewOld"
-        x:Name="LoginWindow"
+﻿<Window x:Class="CMS.Login.LoginView"
+        x:Name="LoginViewElement"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:login="clr-namespace:CMS.Login"
-        Width="480"
-        Height="200"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="LoginWindow"
+        Width="450"
+        SizeToContent="Height"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
-        WindowStyle="ToolWindow"
-        SizeToContent="Height">
-    <!--   <Window.DataContext>
+        ResizeMode="NoResize">
+    <Window.DataContext>
         <login:LoginViewModel></login:LoginViewModel>
     </Window.DataContext>
+
     <Window.Resources>
-        <login:BooleanToVisibilityConverter x:Key="BusyConverter"></login:BooleanToVisibilityConverter>
+        <BooleanToVisibilityConverter x:Key="BusyConverter"></BooleanToVisibilityConverter>
         <ControlTemplate TargetType="Button"
                          x:Key="AwaitableButton">
             <Button Command="{Binding (Button.Command), 
@@ -106,7 +109,7 @@
                     Margin="5"
                     DockPanel.Dock="Right"
                     Command="{Binding Path=Login}"
-                    CommandParameter="{Binding ElementName=LoginWindow }"
+                    CommandParameter="{Binding ElementName=LoginViewElement }"
                     Template="{StaticResource AwaitableButton}" />
             <Button x:Name="CancelButton"
                     DockPanel.Dock="Right"
@@ -119,5 +122,5 @@
                     Click="CancelButton_Click" />
         </WrapPanel>
 
-    </Grid>-->
+    </Grid>
 </Window>

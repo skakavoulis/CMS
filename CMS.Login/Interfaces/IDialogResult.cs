@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS.LoginView.Interfaces
+namespace CMS.Login.Interfaces
 {
     public interface IDialogResult
     {
