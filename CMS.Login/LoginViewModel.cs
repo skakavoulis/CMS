@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Windows;
+using CMS.Login.Interfaces;
 using CMS.Tools;
 
 namespace CMS.Login
@@ -70,7 +71,7 @@ namespace CMS.Login
 
         private void OnTryLogin(object view)
         {
-            if (!(view is Window window))
+            if (!(view is IDialogResult window))
                 throw new NullReferenceException("");
             window.DialogResult = true;
         }
