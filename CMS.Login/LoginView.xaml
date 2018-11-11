@@ -109,7 +109,8 @@
                     Margin="5"
                     DockPanel.Dock="Right"
                     Command="{Binding Path=Login}"
-                    CommandParameter="{Binding ElementName=LoginViewElement }"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor,
+                                AncestorType={x:Type Window}} }"
                     Template="{StaticResource AwaitableButton}" />
             <Button x:Name="CancelButton"
                     DockPanel.Dock="Right"
