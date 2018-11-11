@@ -1,11 +1,12 @@
 ﻿using System.Windows;
+using CMS.Interfaces;
 
 namespace CMS
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IClosable
     {
         public MainWindow()
         {
@@ -15,7 +16,7 @@ namespace CMS
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             var viewModel = DataContext as MainWindowViewModel;
-            viewModel.LoadAuthToken();
+            viewModel.LoadAuthToken(this);
         }
     }
 }

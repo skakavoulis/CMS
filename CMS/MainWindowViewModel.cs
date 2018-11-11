@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Windows;
+using CMS.Interfaces;
 
 namespace CMS
 {
@@ -13,12 +14,12 @@ namespace CMS
 
         }
 
-        public async void LoadAuthToken()
+        public async void LoadAuthToken(IClosable owner)
         {
             var service = App.LoginFactory.InstatiateService();
             var token = await service.Authenticate();
             if (string.IsNullOrWhiteSpace(token))
-                Environment.Exit(0);
+                owner.Close();
             else
                 MessageBox.Show(token);
         }
