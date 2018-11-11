@@ -34,6 +34,8 @@
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.11\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -67,22 +69,29 @@
     <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.11\lib\net47\Unity.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\BaseFactory.cs" />
     <Compile Include="Factories\LoginFactory.cs" />
     <Compile Include="Interfaces\ILoginService.cs" />
-    <Compile Include="LoginService.cs" />
+    <Compile Include="Login\TestLoginService.cs" />
+    <Compile Include="Login\UsernamePasswordLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CMS.Login\CMS.Login.csproj">
+      <Project>{26f4f6d4-3264-4286-9972-619b4d691266}</Project>
+      <Name>CMS.Login</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CMS.Repositories\CMS.Repositories.csproj">
       <Project>{319fadb2-c16d-4018-9dc9-15700c7c1c9c}</Project>
       <Name>CMS.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

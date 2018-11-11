@@ -14,3 +14,7 @@ CMS\.Services/bin/
 CMS\.Services/obj/
 
 \.vs/
+
+CMS\.Login/bin/
+
+CMS\.Login/obj/

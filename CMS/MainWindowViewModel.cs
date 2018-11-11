@@ -1,4 +1,6 @@
-﻿using CMS.LoginServices;
+﻿
+using System;
+using System.Windows;
 
 namespace CMS
 {
@@ -8,13 +10,17 @@ namespace CMS
 
         public MainWindowViewModel()
         {
-           
+
         }
 
         public async void LoadAuthToken()
         {
-            var service = new UsernamePasswordLogin();
-            AuthToken = await service.GetAuthToken();
+            var service = App.LoginFactory.InstatiateService();
+            var token = await service.Authenticate();
+            if (string.IsNullOrWhiteSpace(token))
+                Environment.Exit(0);
+            else
+                MessageBox.Show(token);
         }
 
     }

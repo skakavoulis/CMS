@@ -4,6 +4,6 @@ namespace CMS.Services.Interfaces
 {
     public interface ILoginService
     {
-        Task<string> Authenticate(string email, string password);
+        Task<string> Authenticate();
     }
 }

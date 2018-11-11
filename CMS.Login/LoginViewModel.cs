@@ -1,24 +1,23 @@
-﻿using CMS.Services.Interfaces;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security;
 using System.Windows;
+using CMS.Tools;
 
 namespace CMS.Login
 {
     public class LoginViewModel : INotifyPropertyChanged, INotifyDataErrorInfo
     {
-        private readonly ILoginService _loginService;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string _email;
-        [Required]
         [EmailAddress]
+        [StringLength(int.MaxValue, MinimumLength = 5)]
         public string Email
         {
             get => _email;
@@ -30,10 +29,8 @@ namespace CMS.Login
             }
         }
 
-        private string _password;
-        [Required]
-        [MinLength(5)]
-        public string Password
+        private SecureString _password;
+        public SecureString Password
         {
             get => _password;
             set
@@ -59,33 +56,29 @@ namespace CMS.Login
 
         public LoginViewModel()
         {
-            _loginService = App.LoginFactory.InstatiateService();
-            Login = new LoginCommand(OnTryLogin, CanLogin);
+            Login = new RelayCommand(OnTryLogin, CanLogin);
         }
 
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #region commands
-        public LoginCommand Login { get; set; }
+        public RelayCommand Login { get; set; }
 
-        public CancelCommand Cancel { get; set; } = new CancelCommand();
-
-        private async void OnTryLogin()
+        private void OnTryLogin(object view)
         {
-            Busy = true;
-            var authToken = await _loginService.Authenticate(_email, _password);
-            MessageBox.Show(authToken);
-            Busy = false;
+            if (!(view is Window window))
+                throw new NullReferenceException("");
+            window.DialogResult = true;
         }
 
-        private bool CanLogin()
+        private bool CanLogin(object parameter)
         {
             return !string.IsNullOrWhiteSpace(_email)
-                    && !string.IsNullOrWhiteSpace(_password)
+                    && _password.Length != 0
                     && !_errors.Any()
                     && !_busy;
         }
@@ -119,7 +112,7 @@ namespace CMS.Login
                 _errors[propertyName] = results.Select(c => c.ErrorMessage).ToList();
             else
                 _errors.Remove(propertyName);
-            ErrorsChanged(this, new DataErrorsChangedEventArgs(propertyName));
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
             OnPropertyChanged(nameof(Errors));
             Login.OnCanExecuteChanged();
         }
