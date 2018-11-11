@@ -1,0 +1,6 @@
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Tools\bin\Release\CMS.Tools.dll
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Tools\bin\Release\CMS.Tools.pdb
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Tools\obj\Release\CMS.Tools.csprojAssemblyReference.cache
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Tools\obj\Release\CMS.Tools.csproj.CoreCompileInputs.cache
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Tools\obj\Release\CMS.Tools.dll
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Tools\obj\Release\CMS.Tools.pdb

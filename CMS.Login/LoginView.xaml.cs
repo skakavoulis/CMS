@@ -1,9 +1,6 @@
 ﻿using CMS.Login.Interfaces;
-using System;
-using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace CMS.Login
 {
@@ -20,7 +17,7 @@ namespace CMS.Login
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            this.Close();
         }
 
         private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)

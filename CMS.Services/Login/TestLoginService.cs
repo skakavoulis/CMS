@@ -5,9 +5,9 @@ namespace CMS.Services.Login
 {
     public class TestLoginService : ILoginService
     {
-        public async Task<string> Authenticate()
+        public Task<string> Authenticate()
         {
-            return "Instead of token";
+            return Task.FromResult("Instead of token");
         }
     }
 }
