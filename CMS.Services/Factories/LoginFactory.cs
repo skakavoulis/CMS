@@ -10,7 +10,7 @@ namespace CMS.Services.Factories
     {
         internal override void RegisterInterfaces()
         {
-            Container.RegisterType<ILoginRepository, LoginRepository>();
+            //Container.RegisterType<ILoginRepository, LoginRepository>();
             Container.RegisterType<ILoginService, UsernamePasswordLogin>();
         }
     }

@@ -69,15 +69,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Interfaces\IClosable.cs" />
-    <Compile Include="Main\MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
+    <Compile Include="Clients\ClientsView.xaml.cs">
+      <DependentUpon>ClientsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Main\MainViewModel.cs" />
+    <Compile Include="Clients\ClientsViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Main\MainView.xaml">
+    <Page Include="Clients\ClientsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

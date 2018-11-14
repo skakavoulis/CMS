@@ -1,7 +1,7 @@
 ﻿using CMS.Interfaces;
-using CMS.Main;
 using CMS.Tools;
 using System.Windows;
+using CMS.Clients;
 
 namespace CMS
 {
@@ -36,7 +36,7 @@ namespace CMS
             else
             {
                 MessageBox.Show(token);
-                ActiveView = new MainViewModel();
+                ActiveView = new ClientsViewModel();
             }
 
         }
