@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="CMS.Main.ClientsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:CMS.Main"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:cms="clr-namespace:CMS"
+             xmlns:tools="clr-namespace:CMS.Tools"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             Loaded="MainView_OnLoaded"
+             Background="White">
+
+    <UserControl.Resources>
+        <tools:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+
+    <DockPanel>
+
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Πελάτες"
+                      Margin="5">
+                <MenuItem Header="Προσθήκη"></MenuItem>
+                <MenuItem Header="Αλλαγή"></MenuItem>
+                <MenuItem Header="Διαγραφή"></MenuItem>
+                <Separator />
+                <MenuItem Header="Φόρτωση"
+                          Command="{Binding Path=LoadClients}"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Κάρτες">
+                <MenuItem Header="Δημιουργία"></MenuItem>
+                <MenuItem Header="Αλλαγή"></MenuItem>
+                <MenuItem Header="Διαγραφή"></MenuItem>
+                <Separator />
+                <MenuItem Header="Ενεργοποίηση"></MenuItem>
+                <MenuItem Header="Κλείδωμα"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Αναφορές">
+                <MenuItem Header="Συναλλαγές Πελάτη"></MenuItem>
+                <MenuItem Header="Συναλλαγές Κάρτας"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Εργαλεία">
+                <MenuItem Header="Αποσύνδεση"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical"
+                        FlowDirection=" LeftToRight"
+                        Margin="0"
+                        Grid.RowSpan="3"
+                        Background="#FFF0F0F0">
+
+                <Button Margin="5"
+                        Command="{Binding Path=AddClient}">
+                    <fa:ImageAwesome Icon="PlusCircle"
+                                     Height="10"
+                                     Width="10"
+                                     Margin="3,3,3,3" />
+                </Button>
+                <Button Margin="5">
+                    <fa:ImageAwesome Icon="MinusCircle"
+                                     Height="10"
+                                     Width="10"
+                                     Margin="3,3,3,3" />
+                </Button>
+                <Button Margin="5">
+                    <fa:ImageAwesome Icon="AddressCard"
+                                     Height="10"
+                                     Width="10"
+                                     Margin="3,3,3,3" />
+                </Button>
+                <Button Margin="5">
+                    <fa:ImageAwesome Icon="List"
+                                     Height="10"
+                                     Width="10"
+                                     Margin="3,3,3,3" />
+                </Button>
+                <Button Margin="5">
+                    <fa:ImageAwesome Icon="Key"
+                                     Height="10"
+                                     Width="10"
+                                     Margin="3,3,3,3" />
+                </Button>
+            </StackPanel>
+
+            <DockPanel Grid.Column="1"
+                       Grid.Row="0"
+                       Grid.RowSpan="3"
+                       Margin="0">
+                <DockPanel Dock="Top">
+                    <Button Command="{Binding Path=LoadClients}"
+                            VerticalAlignment="Center"
+                            Margin="5"
+                            DockPanel.Dock="Left">
+                        <fa:ImageAwesome DockPanel.Dock="Left"
+                                         Icon="Download"
+                                         Height="10"
+                                         Width="10"
+                                         Margin="5" />
+                    </Button>
+                    <fa:ImageAwesome DockPanel.Dock="Left"
+                                     Icon="Refresh"
+                                     Height="10"
+                                     Width="10"
+                                     Margin="10,3,3,3"
+                                     Spin="True"
+                                     Visibility="{Binding Path=Busy, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    <StackPanel DockPanel.Dock="Right"
+                                FlowDirection="RightToLeft"
+                                Orientation="Horizontal">
+                        <ComboBox ItemsSource="{Binding Path=CustomerTypes}"
+                                  SelectedValue="{Binding Path=SelectedCustomerType}"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Margin="10" />
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center">Κατηγορία πελατών</TextBlock>
+
+                    </StackPanel>
+                </DockPanel>
+
+                <DataGrid ItemsSource="{Binding Path=Clients}">
+                    <DataGrid.Columns>
+                        <!--<DataGridTextColumn Header="Όνομα"
+                                            Binding="{Binding Path=Name}"></DataGridTextColumn>-->
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</UserControl>

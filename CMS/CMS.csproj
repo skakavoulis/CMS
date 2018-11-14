@@ -60,6 +60,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="NewClient\NewClientViewModel.cs" />
+    <Compile Include="NewClient\NewClientView.xaml.cs">
+      <DependentUpon>NewClientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewClient\PersonalInfo\BirthdayValidator.cs" />
+    <Compile Include="NewClient\PersonalInfo\NameValidator.cs" />
+    <Compile Include="NewClient\PersonalInfo\PersonalInfoView.xaml.cs">
+      <DependentUpon>PersonalInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewClient\PersonalInfo\PersonalInfoViewModel.cs" />
+    <Compile Include="ValueConverters\BoolToVisibilityConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,15 +80,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Interfaces\IClosable.cs" />
-    <Compile Include="Main\MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
+    <Compile Include="Main\ClientsView.xaml.cs">
+      <DependentUpon>ClientsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Main\MainViewModel.cs" />
+    <Compile Include="Main\ClientsViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Main\MainView.xaml">
+    <Page Include="Main\ClientsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewClient\NewClientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewClient\PersonalInfo\PersonalInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

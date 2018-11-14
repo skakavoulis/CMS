@@ -9,5 +9,6 @@ namespace CMS
     public partial class App : Application
     {
         internal static LoginFactory LoginFactory { get; } = new LoginFactory();
+        internal static ClientFactory ClientFactory { get; } = new ClientFactory();
     }
 }

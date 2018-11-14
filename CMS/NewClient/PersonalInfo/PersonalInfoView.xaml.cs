@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CMS.Main
+namespace CMS.NewClient.PersonalInfo
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Interaction logic for PersonalInfoView.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class PersonalInfoView : UserControl
     {
-        public MainView()
+        public PersonalInfoView()
         {
             InitializeComponent();
         }

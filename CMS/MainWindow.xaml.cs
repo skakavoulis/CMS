@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using CMS.Interfaces;
+﻿using CMS.Interfaces;
+using System.Windows;
 
 namespace CMS
 {
@@ -16,7 +16,7 @@ namespace CMS
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             var viewModel = DataContext as MainWindowViewModel;
-            viewModel.LoadAuthToken(this);
+            viewModel?.LoadAuthToken(this);
         }
     }
 }

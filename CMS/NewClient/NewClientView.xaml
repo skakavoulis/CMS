@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="CMS.NewClient.NewClientView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:CMS.NewClient"
+             xmlns:personalInfo="clr-namespace:CMS.NewClient.PersonalInfo"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             Background="White">
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type personalInfo:PersonalInfoViewModel}">
+            <personalInfo:PersonalInfoView />
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="5*" />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1"
+                   Text="Add New Client"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"></TextBlock>
+
+        <ContentControl Grid.Row="1"
+                        Grid.Column="1"
+                        Content="{Binding Path=ActiveViewModel}"></ContentControl>
+
+        <Button Grid.Row="2"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">Previous step</Button>
+        <Button Grid.Row="2"
+                Grid.Column="2"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Command="{Binding Path=NextStep}">Next step</Button>
+    </Grid>
+</UserControl>

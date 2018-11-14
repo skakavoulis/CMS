@@ -72,11 +72,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\TestClientService.cs" />
     <Compile Include="Factories\BaseFactory.cs" />
+    <Compile Include="Factories\ClientFactory.cs" />
     <Compile Include="Factories\LoginFactory.cs" />
+    <Compile Include="Interfaces\IClientService.cs" />
     <Compile Include="Interfaces\ILoginService.cs" />
     <Compile Include="Login\TestLoginService.cs" />
     <Compile Include="Login\UsernamePasswordLogin.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\ClientTypeEnum.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

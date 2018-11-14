@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CMS"
         xmlns:main="clr-namespace:CMS.Main"
+        xmlns:newClient="clr-namespace:CMS.NewClient"
         mc:Ignorable="d"
         Title="Card Management System"
         Height="640"
@@ -14,12 +15,15 @@
         Loaded="MainWindow_OnLoaded">
 
     <Window.DataContext>
-        <local:MainWindowViewModel></local:MainWindowViewModel>
+        <local:MainWindowViewModel />
     </Window.DataContext>
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type main:MainViewModel}">
-            <main:MainView />
+        <DataTemplate DataType="{x:Type main:ClientsViewModel}">
+            <main:ClientsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type newClient:NewClientViewModel}">
+            <newClient:NewClientView />
         </DataTemplate>
     </Window.Resources>
 

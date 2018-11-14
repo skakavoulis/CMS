@@ -15,7 +15,7 @@ namespace CMS.Tools
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool HasErrors => _errors.Any();
+        public virtual bool HasErrors => _errors.Any();
         public virtual IEnumerable<string> Errors => _errors.SelectMany(x => x.Value);
 
         public IEnumerable GetErrors(string propertyName)
@@ -25,6 +25,19 @@ namespace CMS.Tools
                 : null;
         }
 
+        public void OnErrorsChanged([CallerMemberName] string propertyName = null)
+        {
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        }
+
+        protected virtual void SetPropertyValue<T>(ref T property, T value,
+            [CallerMemberName] string propertyName = null)
+        {
+            if (property?.Equals(value) ?? false)
+                return;
+            property = value;
+            OnPropertyChanged(propertyName);
+        }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
