@@ -1,11 +1,13 @@
 ﻿using CMS.Models;
 using CMS.Repositories.Factories;
 using CMS.Repositories.Interfaces;
+using CMS.WCF.Services.Extentions;
 using CMS.WCF.Services.Interfaces;
 using System;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace CMS.WCF.Services
 {
@@ -21,47 +23,33 @@ namespace CMS.WCF.Services
             _clientsRepo = ClientFactory.InstatiateService();
         }
 
-        public Client[] GetClients(int limit)
+        public async Task<Client[]> GetClients(int limit)
         {
             Thread.CurrentPrincipal.Identity.Name.ToString();
             var clients = _clientsRepo.GetClients(limit).Result;
 
             return clients
-                .Select(x => new Client
-                {
-                    ClientId = x.ClientId,
-                    Address = new Address
-                    {
-                        City = x.Address.City,
-                        Country = x.Address.Country,
-                        PostCode = x.Address.PostCode,
-                        StreetName = x.Address.StreetName,
-                        StreetNumber = x.Address.StreetNumber
-                    },
-                    Name = x.Name,
-                    Birthday = x.Birthday,
-                    ClientSince = x.ClientSince,
-                    Lastname = x.Lastname,
-                    TACAccepted = x.TACAccepted,
-                    Type = (ClientTypeEnum)Enum.Parse(typeof(ClientTypeEnum), x.Type.ToString())
-                })
+                .Select(x => x.ToModel())
                 .ToArray();
         }
 
-        public Client AddClient(Client newClient)
+        public async Task<Client> AddClient(Client newClient)
         {
-            
-            return _clientsRepo.AddClient(newClient);
+            var model = newClient.ToRepoModel();
+            var addedClient = await _clientsRepo.AddClient(model);
+            return addedClient.ToModel();
         }
 
-        public bool RemoveClient(Guid clientId)
+        public Task<bool> RemoveClient(Guid clientId)
         {
-            throw new NotImplementedException();
+            return _clientsRepo.RemoveClient(clientId);
         }
 
-        public Client UpdateClient(Client newClient)
+        public async Task<Client> UpdateClient(Client newClient)
         {
-            throw new NotImplementedException();
+            var repoModel = newClient.ToRepoModel();
+            var model = await _clientsRepo.UpdateClient(repoModel);
+            return model.ToModel();
         }
     }
 }

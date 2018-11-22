@@ -1,6 +1,7 @@
 ﻿using CMS.Models;
 using System;
 using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace CMS.WCF.Services.Interfaces
 {
@@ -8,15 +9,15 @@ namespace CMS.WCF.Services.Interfaces
     public interface IClientsService
     {
         [OperationContract]
-        Client[] GetClients(int limit);
+        Task<Client[]> GetClients(int limit);
 
         [OperationContract]
-        Client AddClient(Client newClient);
+        Task<Client> AddClient(Client newClient);
 
         [OperationContract]
-        bool RemoveClient(Guid clientId);
+        Task<bool> RemoveClient(Guid clientId);
 
         [OperationContract]
-        Client UpdateClient(Client newClient);
+        Task<Client> UpdateClient(Client newClient);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CMS.Repositories.Interfaces;
 using CMS.Repositories.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace CMS.Repositories
 {
     public class TestClientsRepository : IClientRepository
     {
-        private static ClientRepo[] _clients;
+        private static List<ClientRepo> _clients;
         private static readonly Random _rand;
         private static readonly string[] _letters;
         private static readonly string[] _countries;
@@ -25,7 +26,7 @@ namespace CMS.Repositories
             _cities = new[] { "Athens", "Kalamata", "Amsterdam", "London", "Buenos Aires", "Tokyo" };
             _clients = Enumerable.Repeat(0, 20)
                 .Select(x => GetRandomClient())
-                .ToArray();
+                .ToList();
         }
 
         public Task<ClientRepo[]> GetClients(int limit)
@@ -39,7 +40,13 @@ namespace CMS.Repositories
 
         public Task<ClientRepo> AddClient(ClientRepo newClient)
         {
-            throw new NotImplementedException();
+            return Task.Run(() =>
+            {
+                Thread.Sleep(2000);
+                newClient.ClientId = Guid.NewGuid();
+                _clients.Add(newClient);
+                return newClient;
+            });
         }
 
         public Task<bool> RemoveClient(Guid clientId)
@@ -47,13 +54,13 @@ namespace CMS.Repositories
             return Task.Run(() =>
             {
                 Thread.Sleep(2000);
-                if (_clients.All(x => x.ClientId != clientId))
+
+                var existingClient = _clients.FirstOrDefault(x => x.ClientId == clientId);
+                if (existingClient == null)
                     return false;
-
-                _clients = _clients
-                    .Where(x => x.ClientId != clientId)
-                    .ToArray();
-
+                var index = _clients
+                    .IndexOf(existingClient);
+                _clients.RemoveAt(index);
                 return true;
             });
         }
@@ -63,7 +70,14 @@ namespace CMS.Repositories
             return Task.Run(() =>
             {
                 Thread.Sleep(2000);
-                return new ClientRepo();
+
+                var existingClient = _clients.FirstOrDefault(x => x.ClientId == newClient.ClientId);
+                if (existingClient == null)
+                    return null;
+                var index = _clients
+                    .IndexOf(existingClient);
+                _clients[index] = newClient;
+                return newClient;
             });
         }
 

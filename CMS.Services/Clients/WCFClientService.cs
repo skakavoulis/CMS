@@ -13,7 +13,7 @@ namespace CMS.Services.Clients
 
         public WCFClientService()
         {
-            _client = new ClientsServiceClient("BasicHttpBinding_IClientsService");
+            _client = new ClientsServiceClient("WSHttpBinding_IClientsService");
         }
 
         public Task<Client[]> GetClientsForBranch(string branchId)
