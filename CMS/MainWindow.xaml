@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CMS"
         xmlns:clients="clr-namespace:CMS.Clients"
+        xmlns:newClient="clr-namespace:CMS.NewClient"
         mc:Ignorable="d"
         Title="Card Management System"
         Height="640"

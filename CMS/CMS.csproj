@@ -60,14 +60,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="NewClient\Address\AddressView.xaml.cs">
-      <DependentUpon>AddressView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NewClient\Address\AddressViewModel.cs" />
+    <Compile Include="NewClient\AddressInfo\CityValidator.cs" />
+    <Compile Include="NewClient\AddressInfo\CountryValidator.cs" />
+    <Compile Include="NewClient\AddressInfo\PostCodeValidator.cs" />
+    <Compile Include="NewClient\AddressInfo\StreetNameValidator.cs" />
     <Compile Include="NewClient\NewClientViewModel.cs" />
     <Compile Include="NewClient\NewClientView.xaml.cs">
       <DependentUpon>NewClientView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewClient\AddressInfo\AddressInfoView.xaml.cs">
+      <DependentUpon>AddressInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewClient\AddressInfo\AddressInfoViewModel.cs" />
     <Compile Include="NewClient\PersonalInfo\BirthdayValidator.cs" />
     <Compile Include="NewClient\PersonalInfo\NameValidator.cs" />
     <Compile Include="NewClient\PersonalInfo\PersonalInfoView.xaml.cs">
@@ -96,13 +100,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewClient\Address\AddressView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="NewClient\NewClientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewClient\AddressInfo\AddressInfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="NewClient\PersonalInfo\PersonalInfoView.xaml">
       <SubType>Designer</SubType>
@@ -138,6 +142,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CMS.Models\CMS.Models.csproj">
+      <Project>{1e15c8f5-9b40-48f0-aa55-524aac68d954}</Project>
+      <Name>CMS.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CMS.Services\CMS.Services.csproj">
       <Project>{c88ec1e7-e7ad-4c01-bd9e-6c93ae7e8d5b}</Project>
       <Name>CMS.Services</Name>

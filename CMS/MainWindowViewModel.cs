@@ -2,6 +2,9 @@
 using CMS.Tools;
 using System.Windows;
 using CMS.Clients;
+using CMS.Models;
+using CMS.NewClient;
+using CMS.Services.Interfaces;
 
 namespace CMS
 {
@@ -36,7 +39,7 @@ namespace CMS
             ActiveView = _clientsViewModel;
         }
 
-        private async void _newClientViewModel_NewClientCreated(object sender, Services.Models.Client args)
+        private async void _newClientViewModel_NewClientCreated(object sender, Client args)
         {
             await _clientService.AddNewClient(args);
             ActiveView = _clientsViewModel;

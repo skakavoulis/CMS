@@ -42,6 +42,8 @@
       <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,31 +75,68 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clients\TestClientService.cs" />
-    <Compile Include="Factories\BaseFactory.cs" />
+    <Compile Include="Clients\WCFClientService.cs" />
+    <Compile Include="Connected Services\ClientsWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Factories\ClientFactory.cs" />
     <Compile Include="Factories\LoginFactory.cs" />
     <Compile Include="Interfaces\IClientService.cs" />
     <Compile Include="Interfaces\ILoginService.cs" />
     <Compile Include="Login\TestLoginService.cs" />
     <Compile Include="Login\UsernamePasswordLogin.cs" />
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\ClientTypeEnum.cs" />
-    <Compile Include="Models\Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Connected Services\ClientsWebService\CMS.Models.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ClientsWebService\service.wsdl" />
+    <None Include="Connected Services\ClientsWebService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ClientsWebService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CMS.Models.Client.datasource" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CMS.Login\CMS.Login.csproj">
       <Project>{c12268cf-1057-4469-97e7-c334950c1ca2}</Project>
       <Name>CMS.Login</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CMS.Repositories\CMS.Repositories.csproj">
-      <Project>{319fadb2-c16d-4018-9dc9-15700c7c1c9c}</Project>
-      <Name>CMS.Repositories</Name>
+    <ProjectReference Include="..\CMS.Models\CMS.Models.csproj">
+      <Project>{1e15c8f5-9b40-48f0-aa55-524aac68d954}</Project>
+      <Name>CMS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CMS.Tools\CMS.Tools.csproj">
+      <Project>{7bd534cf-4f4e-46b3-b97d-d45e2d7e327a}</Project>
+      <Name>CMS.Tools</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ClientsWebService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ClientsWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ClientsWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ClientsWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="CMS.NewClient.AddressInfo.AddressInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:addressinfo="clr-namespace:CMS.NewClient.AddressInfo"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             Background="White">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="validationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red"
+                           FontSize="20">!</TextBlock>
+                <AdornedElementPlaceholder />
+            </DockPanel>
+        </ControlTemplate>
+
+        <Style x:Key="textBoxInError"
+               TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError"
+                         Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Address Information"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Grid.ColumnSpan="2"></TextBlock>
+
+        <TextBlock Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">Address</TextBlock>
+        
+                <TextBlock Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">StreetName</TextBlock>
+        <TextBox x:Name="StreetNameTextBox"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Style="{StaticResource textBoxInError}">
+            <TextBox.Text>
+                <Binding Path="StreetName"
+                         UpdateSourceTrigger="LostFocus">
+                    <Binding.ValidationRules>
+                        <addressinfo:CountryValidator MinSize="5"
+                                             MaxSize="30" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">PostCode</TextBlock>
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Style="{StaticResource textBoxInError}">
+            <Binding Path="PostCode"
+                     UpdateSourceTrigger="LostFocus">
+                <Binding.ValidationRules>
+                    <addressinfo:PostCodeValidator Size="5"/>
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
+
+        <TextBlock Grid.Row="3"
+                   Grid.Column="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">City</TextBlock>
+        <TextBox Grid.Row="3"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Style="{StaticResource textBoxInError}">
+            <Binding Path="City"
+                     UpdateSourceTrigger="LostFocus">
+                <Binding.ValidationRules>
+                    <addressinfo:CityValidator MinSize="3"
+                                         MaxSize="30" />
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
+
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">Country</TextBlock>
+        <TextBox Grid.Row="4"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Style="{StaticResource textBoxInError}">
+            <Binding Path="Country"
+                     UpdateSourceTrigger="LostFocus">
+                <Binding.ValidationRules>
+                    <addressinfo:CountryValidator MinSize="3"
+                                         MaxSize="30" />
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
+    </Grid>
+</UserControl>

@@ -1,14 +1,15 @@
 ﻿using CMS.Services.Clients;
 using CMS.Services.Interfaces;
+using CMS.Tools;
 using Unity;
 
 namespace CMS.Services.Factories
 {
     public class ClientFactory : BaseFactory<IClientService>
     {
-        internal override void RegisterInterfaces()
+        public override void RegisterInterfaces()
         {
-            Container.RegisterType<IClientService, TestClientService>();
+            Container.RegisterType<IClientService, WCFClientService>();
         }
     }
 }

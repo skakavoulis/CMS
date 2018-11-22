@@ -1,5 +1,5 @@
-﻿using CMS.Services.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using CMS.Models;
 
 namespace CMS.Services.Interfaces
 {

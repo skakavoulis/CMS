@@ -1,6 +1,6 @@
-﻿using CMS.NewClient.Address;
+﻿using CMS.Models;
+using CMS.NewClient.AddressInfo;
 using CMS.NewClient.PersonalInfo;
-using CMS.Services.Models;
 using CMS.Tools;
 using System;
 
@@ -9,7 +9,7 @@ namespace CMS.NewClient
     public class NewClientViewModel : BaseViewModel
     {
         private PersonalInfoViewModel _personalInfoViewModel;
-        private AddressViewModel _addressViewModel;
+        private AddressInfoViewModel _addressViewModel;
 
         private BaseViewModel[] _navigationMap;
         private int _navigationIndex = 0;
@@ -17,7 +17,7 @@ namespace CMS.NewClient
         public NewClientViewModel()
         {
             _personalInfoViewModel = new PersonalInfoViewModel();
-            _addressViewModel = new AddressViewModel();
+            _addressViewModel = new AddressInfoViewModel();
             _navigationMap = new BaseViewModel[] { _personalInfoViewModel, _addressViewModel };
             _personalInfoViewModel.ErrorsChanged += _personalInfoViewModel_ErrorsChanged;
             ActiveViewModel = _navigationMap[_navigationIndex];
@@ -52,13 +52,12 @@ namespace CMS.NewClient
                     Type = ClientTypeEnum.Ιδιώτης,
                     Birthday = _personalInfoViewModel.Birthday,
                     ClientSince = DateTime.UtcNow,
-                    Address = new Services.Models.Address
+                    Address = new Address
                     {
                         City = _addressViewModel.City,
                         Country = _addressViewModel.Country,
                         PostCode = _addressViewModel.PostCode,
-                        StreetNumber = _addressViewModel.StreetNumber,
-                        StreeName = _addressViewModel.Street,
+                        StreetName = _addressViewModel.StreetName,
                     },
                     ClientId = Guid.NewGuid(),
                     Lastname = _personalInfoViewModel.LastName

@@ -19,6 +19,14 @@ CMS\.Login/bin/
 
 CMS\.Login/obj/
 
+CMS\.WCF\.Services/bin/
+
+CMS\.WCF\.Services/obj/
+
+CMS\.Host/bin/
+
+CMS\.Host/obj/
+
 CMS\.Tools/bin/
 
 CMS\.Tools/obj/

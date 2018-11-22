@@ -3,14 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 
 namespace CMS.NewClient.PersonalInfo
 {
     public class PersonalInfoViewModel : BaseViewModel, IDataErrorInfo
     {
-        private Dictionary<string, string> _errors;
+        private new Dictionary<string, string> _errors;
 
         public PersonalInfoViewModel()
         {
@@ -70,13 +69,13 @@ namespace CMS.NewClient.PersonalInfo
                                           || _errors.Any();
 
 
-        private void Validate(object value, ValidationRule validator, [CallerMemberName]string propertyName = null)
+        private void Validate(object value, ValidationRule validator)
         {
-            var validation = validator.Validate(value, null);
-            if (!validation.IsValid)
-                _errors[propertyName] = validation.ErrorContent as string;
+            var error = validator.Validate(value, null);
+            if (!error.IsValid)
+                _errors[nameof(Name)] = error.ErrorContent as string;
             else
-                _errors.Remove(propertyName);
+                _errors.Remove(nameof(Name));
             OnErrorsChanged();
         }
     }
