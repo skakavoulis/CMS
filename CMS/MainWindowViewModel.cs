@@ -1,8 +1,7 @@
 ﻿using CMS.Interfaces;
-using CMS.Main;
-using CMS.NewClient;
-using CMS.Services.Interfaces;
 using CMS.Tools;
+using System.Windows;
+using CMS.Clients;
 
 namespace CMS
 {

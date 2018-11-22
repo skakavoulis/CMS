@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CMS"
-        xmlns:main="clr-namespace:CMS.Main"
-        xmlns:newClient="clr-namespace:CMS.NewClient"
+        xmlns:clients="clr-namespace:CMS.Clients"
         mc:Ignorable="d"
         Title="Card Management System"
         Height="640"
@@ -19,8 +18,8 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type main:ClientsViewModel}">
-            <main:ClientsView />
+        <DataTemplate DataType="{x:Type clients:ClientsViewModel}">
+            <clients:ClientsView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type newClient:NewClientViewModel}">
             <newClient:NewClientView />
