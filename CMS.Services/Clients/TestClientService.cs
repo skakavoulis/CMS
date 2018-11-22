@@ -1,6 +1,7 @@
 ﻿using CMS.Services.Interfaces;
 using CMS.Services.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace CMS.Services.Clients
 {
     class TestClientService : IClientService
     {
-        private static readonly Client[] _clients;
+        private static readonly List<Client> _clients;
         private static readonly Random _rand;
         private static readonly string[] _letters;
         private static readonly string[] _countries;
@@ -25,7 +26,7 @@ namespace CMS.Services.Clients
             _cities = new[] { "Athens", "Kalamata", "Amsterdam", "London", "Buenos Aires", "Tokyo" };
             _clients = Enumerable.Repeat(0, 20)
                 .Select(x => GetRandomClient())
-                .ToArray();
+                .ToList();
         }
 
         public string AuthToken { get; set; }
@@ -35,13 +36,18 @@ namespace CMS.Services.Clients
             return Task.Run(() =>
              {
                  Thread.Sleep(2000);
-                 return _clients;
+                 return _clients.ToArray();
              });
         }
 
         public Task<Client> AddNewClient(Client newClient)
         {
-            throw new NotImplementedException();
+            return Task.Run(() =>
+            {
+                Thread.Sleep(2000);
+                _clients.Add(newClient);
+                return newClient;
+            });
         }
 
 

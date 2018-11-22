@@ -9,6 +9,7 @@ namespace CMS
     public class MainWindowViewModel : BaseViewModel
     {
         private IClientService _clientService;
+
         private ClientsViewModel _clientsViewModel;
         private NewClientViewModel _newClientViewModel;
 
@@ -27,6 +28,19 @@ namespace CMS
             _clientsViewModel = new ClientsViewModel(_clientService);
             _clientsViewModel.OnAddNewClient += ClientsViewModelOnAddNewClient;
             _newClientViewModel = new NewClientViewModel();
+            _newClientViewModel.NewClientCreated += _newClientViewModel_NewClientCreated;
+            _newClientViewModel.NewClientCancelled += _newClientViewModel_NewClientCancelled;
+        }
+
+        private void _newClientViewModel_NewClientCancelled(object sender)
+        {
+            ActiveView = _clientsViewModel;
+        }
+
+        private async void _newClientViewModel_NewClientCreated(object sender, Services.Models.Client args)
+        {
+            await _clientService.AddNewClient(args);
+            ActiveView = _clientsViewModel;
         }
 
         private void ClientsViewModelOnAddNewClient(BaseViewModel sender)

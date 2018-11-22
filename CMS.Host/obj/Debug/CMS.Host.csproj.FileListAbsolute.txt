@@ -1,0 +1,6 @@
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Host\bin\Debug\CMS.Host.exe.config
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Host\bin\Debug\CMS.Host.exe
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Host\bin\Debug\CMS.Host.pdb
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Host\obj\Debug\CMS.Host.csproj.CoreCompileInputs.cache
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Host\obj\Debug\CMS.Host.exe
+D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Host\obj\Debug\CMS.Host.pdb

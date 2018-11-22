@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 
 namespace CMS.NewClient.PersonalInfo
@@ -69,13 +70,13 @@ namespace CMS.NewClient.PersonalInfo
                                           || _errors.Any();
 
 
-        private void Validate(object value, ValidationRule validator)
+        private void Validate(object value, ValidationRule validator, [CallerMemberName]string propertyName = null)
         {
-            var error = validator.Validate(value, null);
-            if (!error.IsValid)
-                _errors[nameof(Name)] = error.ErrorContent as string;
+            var validation = validator.Validate(value, null);
+            if (!validation.IsValid)
+                _errors[propertyName] = validation.ErrorContent as string;
             else
-                _errors.Remove(nameof(Name));
+                _errors.Remove(propertyName);
             OnErrorsChanged();
         }
     }
