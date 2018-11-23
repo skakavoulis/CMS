@@ -50,11 +50,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CMS.WCF.Services\CMS.WCF.Services.csproj">
-      <Project>{5787537f-9bed-425e-b87c-e5df7b5bd7c4}</Project>
-      <Name>CMS.WCF.Services</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

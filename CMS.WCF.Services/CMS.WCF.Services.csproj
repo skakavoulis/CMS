@@ -55,7 +55,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientsService.cs" />
     <Compile Include="Extentions\Mappers.cs" />
     <Compile Include="Interfaces\IClientsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
