@@ -76,11 +76,6 @@
   <ItemGroup>
     <Compile Include="Clients\TestClientService.cs" />
     <Compile Include="Clients\WCFClientService.cs" />
-    <Compile Include="Connected Services\ClientsWebService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Factories\ClientFactory.cs" />
     <Compile Include="Factories\LoginFactory.cs" />
     <Compile Include="Interfaces\IClientService.cs" />
@@ -92,16 +87,6 @@
   <ItemGroup>
     <None Include="app.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Connected Services\ClientsWebService\CMS.Models.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ClientsWebService\service.wsdl" />
-    <None Include="Connected Services\ClientsWebService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ClientsWebService\service1.xsd">
-      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CMS.Models.Client.datasource" />
@@ -122,21 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ClientsWebService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientsWebService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientsWebService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientsWebService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
