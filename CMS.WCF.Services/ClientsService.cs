@@ -23,15 +23,14 @@ namespace CMS.WCF.Services
             _clientsRepo = ClientFactory.InstatiateService();
         }
 
-        public Task<Client[]> GetClients(int limit)
+        public async Task<Client[]> GetClients(int limit)
         {
-            //Thread.CurrentPrincipal.Identity.Name.ToString();
-            //var clients = _clientsRepo.GetClients(limit).Result;
+            Thread.CurrentPrincipal.Identity.Name.ToString();
+            var clients = _clientsRepo.GetClients(limit).Result;
 
-            //return clients
-            //    .Select(x => x.ToModel())
-            //    .ToArray();
-            return Task.FromResult<Client[]>(null);
+            return clients
+                .Select(x => x.ToModel())
+                .ToArray();
         }
 
         public async Task<Client> AddClient(Client newClient)
