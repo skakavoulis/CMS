@@ -2,6 +2,7 @@
 using CMS.Services.Interfaces;
 using CMS.Tools;
 using Unity;
+using Unity.Lifetime;
 
 namespace CMS.Services.Factories
 {
@@ -9,7 +10,7 @@ namespace CMS.Services.Factories
     {
         public override void RegisterInterfaces()
         {
-            Container.RegisterType<IClientService, WCFClientService>();
+            Container.RegisterType<IClientService, WCFClientService>(new TransientLifetimeManager());
         }
     }
 }

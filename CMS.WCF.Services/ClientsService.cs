@@ -1,6 +1,7 @@
 ﻿using CMS.Models;
 using CMS.Repositories.Factories;
 using CMS.Repositories.Interfaces;
+using CMS.WCF.Services.Exceptions;
 using CMS.WCF.Services.Extentions;
 using CMS.WCF.Services.Interfaces;
 using System;
@@ -25,7 +26,6 @@ namespace CMS.WCF.Services
 
         public async Task<Client[]> GetClients(int limit)
         {
-            Thread.CurrentPrincipal.Identity.Name.ToString();
             var clients = _clientsRepo.GetClients(limit).Result;
 
             return clients
@@ -35,6 +35,10 @@ namespace CMS.WCF.Services
 
         public async Task<Client> AddClient(Client newClient)
         {
+            //if (!(Thread.CurrentPrincipal?.IsInRole("Administrators") ?? false))
+                throw new NotAuthorizedException($"{nameof(AddClient)} can only be used by Administrators");
+
+
             var model = newClient.ToRepoModel();
             var addedClient = await _clientsRepo.AddClient(model);
             return addedClient.ToModel();

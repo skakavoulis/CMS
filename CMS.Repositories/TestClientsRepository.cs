@@ -91,8 +91,8 @@ namespace CMS.Repositories
                 Birthday = GetRandomBirthday(),
                 ClientId = Guid.NewGuid(),
                 ClientSince = GetRandomClientSince(),
-                Lastname = RandomString(_rand.Next(5, 10)),
-                Name = RandomString(_rand.Next(10, 20)),
+                Name = RandomString(_rand.Next(5, 10)),
+                Lastname = RandomString(_rand.Next(10, 20)),
                 TACAccepted = RandomBoolean()
             };
         }
