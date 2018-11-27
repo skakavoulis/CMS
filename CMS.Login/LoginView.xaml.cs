@@ -27,6 +27,11 @@ namespace CMS.Login
 
             viewModel.Password = (sender as PasswordBox)?.SecurePassword;
         }
+
+        private void OkButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+        }
     }
 }
 

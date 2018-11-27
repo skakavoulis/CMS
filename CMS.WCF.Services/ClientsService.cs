@@ -6,6 +6,8 @@ using CMS.WCF.Services.Extentions;
 using CMS.WCF.Services.Interfaces;
 using System;
 using System.Linq;
+using System.Net;
+using System.Security.Claims;
 using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +37,7 @@ namespace CMS.WCF.Services
 
         public async Task<Client> AddClient(Client newClient)
         {
-            //if (!(Thread.CurrentPrincipal?.IsInRole("Administrators") ?? false))
+            if (!(Thread.CurrentPrincipal?.IsInRole("Administrators") ?? false))
                 throw new NotAuthorizedException($"{nameof(AddClient)} can only be used by Administrators");
 
 

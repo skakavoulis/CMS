@@ -52,20 +52,20 @@ namespace CMS
 
         public async void LoadAuthToken(IClosable owner)
         {
-            ActiveView = _clientsViewModel;
+            //ActiveView = _clientsViewModel;
 
-            //var service = App.LoginFactory.InstatiateService();
-            //var token = await service.Authenticate();
-            //if (string.IsNullOrWhiteSpace(token))
-            //{
-            //    owner.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show(token);
-            //    _clientService.AuthToken = token;
-            //    ActiveView = new ClientsViewModel(_clientService);
-            //}
+            var service = App.LoginFactory.InstatiateService();
+            var token = await service.Authenticate();
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                owner.Close();
+            }
+            else
+            {
+                MessageBox.Show(token);
+                _clientService.AuthToken = token;
+                ActiveView = new ClientsViewModel(_clientService);
+            }
 
         }
 
