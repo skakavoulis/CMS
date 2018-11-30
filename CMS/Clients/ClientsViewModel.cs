@@ -1,6 +1,7 @@
 ﻿using CMS.Models;
 using CMS.Services.Interfaces;
 using CMS.Tools;
+using System.Windows;
 
 namespace CMS.Clients
 {
@@ -13,6 +14,7 @@ namespace CMS.Clients
             _clientService = clientService;
             LoadClients = new RelayCommand(OnLoadClients, CanLoadClients);
             AddClient = new RelayCommand(AddNewClient);
+            DeleteClient = new RelayCommand((param) => { MessageBox.Show(param?.ToString()); });
         }
 
         public string BranchId { get; set; } = "br-145";
@@ -86,6 +88,9 @@ namespace CMS.Clients
         {
             OnAddNewClient?.Invoke(this);
         }
+
+
+        public RelayCommand DeleteClient { get; set; }
 
 
 

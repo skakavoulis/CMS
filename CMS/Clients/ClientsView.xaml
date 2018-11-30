@@ -6,6 +6,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:cms="clr-namespace:CMS"
              xmlns:tools="clr-namespace:CMS.Tools"
+             xmlns:clients="clr-namespace:CMS.Clients"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800"
@@ -131,12 +132,19 @@
                     </StackPanel>
                 </DockPanel>
 
-                <DataGrid ItemsSource="{Binding Path=Clients}">
+                <!--<DataGrid ItemsSource="{Binding Path=Clients}">
                     <DataGrid.Columns>
-                        <!--<DataGridTextColumn Header="Όνομα"
+                        -->
+                <!--<DataGridTextColumn Header="Όνομα"
                                             Binding="{Binding Path=Name}"></DataGridTextColumn>-->
+                <!--
                     </DataGrid.Columns>
-                </DataGrid>
+                </DataGrid>-->
+
+                <ItemsControl ItemsSource="{Binding Path=Clients}"
+                              HorizontalAlignment="Stretch">
+                   
+                </ItemsControl>
 
             </DockPanel>
         </Grid>

@@ -1,5 +1,0 @@
-D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Models\bin\Debug\CMS.Models.dll
-D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Models\bin\Debug\CMS.Models.pdb
-D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Models\obj\Debug\CMS.Models.csproj.CoreCompileInputs.cache
-D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Models\obj\Debug\CMS.Models.dll
-D:\_Code\STRS\CodeHub\Printect - MVVM - WFC - WPF\repos\CMS\CMS\CMS.Models\obj\Debug\CMS.Models.pdb

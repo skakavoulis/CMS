@@ -1,8 +1,19 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:models="clr-namespace:CMS.Models;assembly=CMS.Models"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style TargetType="Button">
         <Setter Property="Background"
                 Value="CornflowerBlue"></Setter>
     </Style>
+
+    <DataTemplate DataType="{x:Type models:Client}">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Path=Name}"></TextBlock>
+            <Button Content="Delete"
+                    Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.DeleteClient}"
+                    CommandParameter="{Binding Path=Name}"></Button>
+        </StackPanel>
+    </DataTemplate>
 
 </ResourceDictionary>
