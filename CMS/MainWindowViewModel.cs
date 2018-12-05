@@ -41,7 +41,7 @@ namespace CMS
 
         private void _msg_MessageReceived(object sender, MessageReceivedDelegateArgs args)
         {
-            MessageBox.Show(args.Message);
+            //MessageBox.Show(args.Message);
         }
 
         private void _newClientViewModel_NewClientCancelled(object sender)

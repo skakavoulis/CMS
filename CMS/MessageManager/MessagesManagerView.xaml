@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MessagesManagerView"
-        Height="450"
+        Height="529.5"
         Width="800">
     <StackPanel>
         <StackPanel Orientation="Horizontal">
@@ -36,5 +36,11 @@
                 Margin="30"
                 Click="SendMessageClick"
                 IsEnabled="False" />
+        <TextBox Text="Hello World"
+                 Name="MessageTextBox"
+                 Margin="30" />
+        <TextBlock Name="MessageReceivedTextBlock"
+                   Margin="30"
+                   Text="The message that was received"/>
     </StackPanel>
 </Window>
