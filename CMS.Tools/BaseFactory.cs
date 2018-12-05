@@ -8,13 +8,19 @@ namespace CMS.Tools
 
         public T InstatiateService()
         {
-            return InstatiateService(new UnityContainer());
+            if (Container == null)
+            {
+                Container = new UnityContainer();
+                RegisterInterfaces();
+            }
+
+            return Container.Resolve<T>();
         }
 
         public T InstatiateService(IUnityContainer container)
         {
             if (container == null)
-                container = new UnityContainer();
+                container = Container ?? new UnityContainer();
 
             Container = container;
             RegisterInterfaces();

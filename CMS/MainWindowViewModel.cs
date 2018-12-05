@@ -1,16 +1,18 @@
-﻿using CMS.Interfaces;
-using CMS.Tools;
-using System.Windows;
-using CMS.Clients;
+﻿using CMS.Clients;
+using CMS.Interfaces;
+using CMS.MessageManager;
 using CMS.Models;
 using CMS.NewClient;
 using CMS.Services.Interfaces;
+using CMS.Tools;
+using System.Windows;
 
 namespace CMS
 {
     public class MainWindowViewModel : BaseViewModel
     {
         private IClientService _clientService;
+        private IMessagesService _msg;
 
         private ClientsViewModel _clientsViewModel;
         private NewClientViewModel _newClientViewModel;
@@ -32,6 +34,14 @@ namespace CMS
             _newClientViewModel = new NewClientViewModel();
             _newClientViewModel.NewClientCreated += _newClientViewModel_NewClientCreated;
             _newClientViewModel.NewClientCancelled += _newClientViewModel_NewClientCancelled;
+
+            _msg = App.MessagesFactory.InstatiateService();
+            _msg.MessageReceived += _msg_MessageReceived;
+        }
+
+        private void _msg_MessageReceived(object sender, MessageReceivedDelegateArgs args)
+        {
+            MessageBox.Show(args.Message);
         }
 
         private void _newClientViewModel_NewClientCancelled(object sender)
@@ -52,8 +62,6 @@ namespace CMS
 
         public async void LoadAuthToken(IClosable owner)
         {
-            //ActiveView = _clientsViewModel;
-
             var service = App.LoginFactory.InstatiateService();
             var token = await service.Authenticate();
             if (string.IsNullOrWhiteSpace(token))
@@ -64,7 +72,10 @@ namespace CMS
             {
                 MessageBox.Show(token);
                 _clientService.AuthToken = token;
-                ActiveView = new ClientsViewModel(_clientService);
+                ActiveView = _clientsViewModel;
+
+                var messageManager = new MessagesManagerView();
+                messageManager.Show();
             }
 
         }

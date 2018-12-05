@@ -313,46 +313,46 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/CMS.Models" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IClientsService_GetClients_InputMessage">
+  <wsdl:recipient name="IClientsService_GetClients_InputMessage">
     <wsdl:part name="parameters" element="tns:GetClients" />
-  </wsdl:message>
-  <wsdl:message name="IClientsService_GetClients_OutputMessage">
+  </wsdl:recipient>
+  <wsdl:recipient name="IClientsService_GetClients_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetClientsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IClientsService_AddClient_InputMessage">
+  </wsdl:recipient>
+  <wsdl:recipient name="IClientsService_AddClient_InputMessage">
     <wsdl:part name="parameters" element="tns:AddClient" />
-  </wsdl:message>
-  <wsdl:message name="IClientsService_AddClient_OutputMessage">
+  </wsdl:recipient>
+  <wsdl:recipient name="IClientsService_AddClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddClientResponse" />
-  </wsdl:message>
-  <wsdl:message name="IClientsService_RemoveClient_InputMessage">
+  </wsdl:recipient>
+  <wsdl:recipient name="IClientsService_RemoveClient_InputMessage">
     <wsdl:part name="parameters" element="tns:RemoveClient" />
-  </wsdl:message>
-  <wsdl:message name="IClientsService_RemoveClient_OutputMessage">
+  </wsdl:recipient>
+  <wsdl:recipient name="IClientsService_RemoveClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveClientResponse" />
-  </wsdl:message>
-  <wsdl:message name="IClientsService_UpdateClient_InputMessage">
+  </wsdl:recipient>
+  <wsdl:recipient name="IClientsService_UpdateClient_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateClient" />
-  </wsdl:message>
-  <wsdl:message name="IClientsService_UpdateClient_OutputMessage">
+  </wsdl:recipient>
+  <wsdl:recipient name="IClientsService_UpdateClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateClientResponse" />
-  </wsdl:message>
+  </wsdl:recipient>
   <wsdl:portType name="IClientsService">
     <wsdl:operation name="GetClients">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClientsService/GetClients" message="tns:IClientsService_GetClients_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClientsService/GetClientsResponse" message="tns:IClientsService_GetClients_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientsService/GetClients" recipient="tns:IClientsService_GetClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientsService/GetClientsResponse" recipient="tns:IClientsService_GetClients_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddClient">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClientsService/AddClient" message="tns:IClientsService_AddClient_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClientsService/AddClientResponse" message="tns:IClientsService_AddClient_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientsService/AddClient" recipient="tns:IClientsService_AddClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientsService/AddClientResponse" recipient="tns:IClientsService_AddClient_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveClient">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClientsService/RemoveClient" message="tns:IClientsService_RemoveClient_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClientsService/RemoveClientResponse" message="tns:IClientsService_RemoveClient_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientsService/RemoveClient" recipient="tns:IClientsService_RemoveClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientsService/RemoveClientResponse" recipient="tns:IClientsService_RemoveClient_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateClient">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClientsService/UpdateClient" message="tns:IClientsService_UpdateClient_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClientsService/UpdateClientResponse" message="tns:IClientsService_UpdateClient_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientsService/UpdateClient" recipient="tns:IClientsService_UpdateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientsService/UpdateClientResponse" recipient="tns:IClientsService_UpdateClient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IClientsService" type="tns:IClientsService">

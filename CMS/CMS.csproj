@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +62,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MessageManager\IMessageManager.cs" />
+    <Compile Include="MessageManager\MessageManager.cs" />
+    <Compile Include="MessageManager\MessagesManagerView.xaml.cs">
+      <DependentUpon>MessagesManagerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewClient\AddressInfo\CityValidator.cs" />
     <Compile Include="NewClient\AddressInfo\CountryValidator.cs" />
     <Compile Include="NewClient\AddressInfo\PostCodeValidator.cs" />
@@ -97,6 +104,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Clients\ClientsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MessageManager\MessagesManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,6 +174,8 @@
       <Name>CMS.Tools</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

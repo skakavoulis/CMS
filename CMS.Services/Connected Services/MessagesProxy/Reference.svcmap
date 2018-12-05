@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0c423eeb-79f3-4e47-b94e-02d970d9de05" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8500/messages/mex" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MessageManager.wsdl" MetadataType="Wsdl" ID="6adb3e6b-e75c-4366-9de8-5cae973a6d2a" SourceId="1" SourceUrl="http://localhost:8500/messages/mex" />
+    <MetadataFile FileName="MessageManager1.wsdl" MetadataType="Wsdl" ID="fec4cf9f-720a-43b9-8ad4-b0ebed8573b1" SourceId="1" SourceUrl="http://localhost:8500/messages/mex?wsdl" />
+    <MetadataFile FileName="mex.wsdl" MetadataType="Wsdl" ID="be19d60d-e69e-4a91-bd71-1b28d086ca04" SourceId="1" SourceUrl="http://localhost:8500/messages/mex?wsdl=wsdl0" />
+    <MetadataFile FileName="mex.xsd" MetadataType="Schema" ID="5ed7f7fe-1c4a-46fe-98a7-55680cf03f17" SourceId="1" SourceUrl="http://localhost:8500/messages/mex?xsd=xsd0" />
+    <MetadataFile FileName="mex1.xsd" MetadataType="Schema" ID="ca070a55-cba4-493d-92e4-be6f4f6debc6" SourceId="1" SourceUrl="http://localhost:8500/messages/mex?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

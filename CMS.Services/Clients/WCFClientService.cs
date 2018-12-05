@@ -10,23 +10,25 @@ namespace CMS.Services.Clients
     public class WCFClientService : IClientService
     {
         //private ClientsServiceClient _client;
+        private ChannelFactory<IClientsService> _factory;
         public string AuthToken { get; set; }
 
 
         public WCFClientService()
         {
             //_client = new ClientsServiceClient("WSHttpBinding_IClientsService");
+            _factory = new ChannelFactory<IClientsService>("WSHttpBinding_IClientsService");
         }
 
         public Task<Client[]> GetClientsForBranch(string branchId)
         {
-            var client = new ClientsServiceClient("WSHttpBinding_IClientsService");
+            var client = _factory.CreateChannel();
             return client.GetClientsAsync(30);
         }
 
         public async Task<Client> AddNewClient(Client newClient)
         {
-            var client = new ClientsServiceClient("WSHttpBinding_IClientsService");
+            var client = _factory.CreateChannel();
             try
             {
                 return await client.AddClientAsync(newClient);

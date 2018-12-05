@@ -10,5 +10,6 @@ namespace CMS
     {
         internal static LoginFactory LoginFactory { get; } = new LoginFactory();
         internal static ClientFactory ClientFactory { get; } = new ClientFactory();
+        internal static MessagesFactory MessagesFactory { get; } = new MessagesFactory();
     }
 }

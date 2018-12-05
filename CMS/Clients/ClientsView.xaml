@@ -132,20 +132,15 @@
                     </StackPanel>
                 </DockPanel>
 
-                <!--<DataGrid ItemsSource="{Binding Path=Clients}">
+                <DataGrid ItemsSource="{Binding Path=Clients}">
                     <DataGrid.Columns>
-                        -->
-                <!--<DataGridTextColumn Header="Όνομα"
-                                            Binding="{Binding Path=Name}"></DataGridTextColumn>-->
-                <!--
+
+                        <DataGridTextColumn Header="Όνομα"
+                                            Binding="{Binding Path=Name}">
+                        </DataGridTextColumn>
+
                     </DataGrid.Columns>
-                </DataGrid>-->
-
-                <ItemsControl ItemsSource="{Binding Path=Clients}"
-                              HorizontalAlignment="Stretch">
-                   
-                </ItemsControl>
-
+                </DataGrid>
             </DockPanel>
         </Grid>
     </DockPanel>

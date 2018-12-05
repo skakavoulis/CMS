@@ -32,3 +32,5 @@ CMS\.Tools/bin/
 CMS\.Tools/obj/
 
 CMS\.Models/obj/
+
+CMS\.Services\.MessagesManager/
