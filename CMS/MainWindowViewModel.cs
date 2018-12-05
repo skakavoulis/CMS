@@ -64,19 +64,18 @@ namespace CMS
         {
             var service = App.LoginFactory.InstatiateService();
             var token = await service.Authenticate();
-            if (string.IsNullOrWhiteSpace(token))
-            {
-                owner.Close();
-            }
-            else
-            {
-                MessageBox.Show(token);
-                _clientService.AuthToken = token;
-                ActiveView = _clientsViewModel;
+            //if (string.IsNullOrWhiteSpace(token))
+            //{
+            //    owner.Close();
+            //}
+            //else
+            //{
+            _clientService.AuthToken = token;
+            ActiveView = _clientsViewModel;
 
-                var messageManager = new MessagesManagerView();
-                messageManager.Show();
-            }
+            var messageManager = new MessagesManagerView();
+            messageManager.Show();
+            //}
 
         }
 

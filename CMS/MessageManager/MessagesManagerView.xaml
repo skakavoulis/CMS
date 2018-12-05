@@ -8,6 +8,16 @@
         Height="450"
         Width="800">
     <StackPanel>
+        <StackPanel Orientation="Horizontal">
+
+            <TextBlock Text="Id"
+                       HorizontalAlignment="Stretch"
+                       Margin="30"></TextBlock>
+            <TextBox Name="IdTextBox"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Width="300"></TextBox>
+        </StackPanel>
         <Button Name="StartButton"
                 Content="Start Manager"
                 Margin="30"
@@ -17,8 +27,14 @@
                 Margin="30"
                 Click="StopManagerClick"
                 IsEnabled="False" />
-        <Button Content="Send Message"
+        <TextBox Name="RecipientIsdTextBox"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Width="300"></TextBox>
+        <Button Name="MessageButton"
+                Content="Send Message"
                 Margin="30"
-                Click="SendMessageClick" />
+                Click="SendMessageClick"
+                IsEnabled="False" />
     </StackPanel>
 </Window>

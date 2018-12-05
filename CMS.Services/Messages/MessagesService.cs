@@ -1,5 +1,5 @@
 ﻿using CMS.Services.Interfaces;
-using System;
+using System.ServiceModel;
 
 namespace CMS.Services.Messages
 {
@@ -12,7 +12,8 @@ namespace CMS.Services.Messages
 
         public void SendMessage(string message, string recipient)
         {
-            var client = new MessagesProxy.MessageManagerClient("NetNamedPipeBinding_IMessageManager");
+            //var client = new MessagesProxy.MessageManagerClient("NetNamedPipeBinding_IMessageManager");
+            var client = new MessagesProxy.MessageManagerClient(new NetNamedPipeBinding(), new EndpointAddress($"net.pipe://localhost/messages/{recipient}"));
             client.SendMessage(message);
             client.Close();
         }
